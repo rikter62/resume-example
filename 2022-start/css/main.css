@@ -452,19 +452,33 @@ hr {
 }
 
 .education {
+  grid-column: 1 / -1;
+  border-radius: 6px;
+  border-bottom-width: 2px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: rgba(255, 115, 0, 0.1);
+  border: 1px solid rgba(255, 115, 0, 0.3);
+  font-family: "Dosis", sans-serif;
+  height: 100%;
+  padding: 2rem;
+  position: relative;
+  opacity: 1;
+  -webkit-transition: all .5s;
+  transition: all .5s;
   overflow: hidden;
 }
 
 .education:hover .education--logo {
-  -webkit-transform: scale(1.5) rotate(0);
-          transform: scale(1.5) rotate(0);
+  -webkit-transform: scale(5) rotate(0);
+          transform: scale(5) rotate(0);
   -webkit-transition: -webkit-transform 350ms ease-in-out;
   transition: -webkit-transform 350ms ease-in-out;
   transition: transform 350ms ease-in-out;
   transition: transform 350ms ease-in-out, -webkit-transform 350ms ease-in-out;
 }
 
-.education .card--title {
+.education--title {
   margin-bottom: 1rem;
 }
 
@@ -483,7 +497,7 @@ hr {
   width: 100px;
   float: left;
   display: block;
-  right: 2.5rem;
+  right: 3.5rem;
   top: 3.6rem;
   position: absolute;
   opacity: .15;
