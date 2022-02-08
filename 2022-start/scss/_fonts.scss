@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "Dosis";
+    src: url("../fonts/Dosis-Regular.ttf");
+  }
+  @font-face {
+    font-family: "DosisBold";
+    src: url("../fonts/Dosis-Bold.ttf");
+  }
+
+
+@font-face {
+    font-family: 'open_sans_condensedlight';
+    src: url('../fonts/opensanscondensed-light-webfont.woff2') format('woff2'),
+         url('../fonts/opensanscondensed-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Red Hat Display';
+    src: url(../fonts/RedHatDisplay-ExtraBold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+
+}

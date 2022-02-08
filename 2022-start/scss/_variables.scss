@@ -1,0 +1,20 @@
+/* CSS Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+html {
+    /* 62.5% of typical 16px browser default = 10px */
+        --base-font-size: 62.5%;
+    
+    /* Grid Defaults - default  */
+        --max-width-main: 1100px;
+    
+    /* Color Defaults - default  */	
+        --background-color: #f5f5f5;	
+        --border-color: #f0f0f0;
+        --primary-color: #fff;
+        --secondary-color: #ccc;
+        --text-color: #555;
+        --link-color: rgb(7, 164, 255);
+        --link-color-hover: #000;
+      
+    }
+    
