@@ -12,9 +12,27 @@ html {
         --border-color: #f0f0f0;
         --primary-color: #fff;
         --secondary-color: #ccc;
-        --text-color: #555;
+        --modal-color: rgba(0, 0, 0, 0.8);
+        --text-color: #222;
+        --text-shadow-color: #fff;
+        --modal-text-shadow-color: rgba(0, 0, 0, 0.3)
         --link-color: rgb(7, 164, 255);
         --link-color-hover: #000;
+        --card-background-image:none; 
       
     }
     
+    // html[data-theme='dark'] {
+    //     /* Color Dark Theme  */	
+    //     --background-color: #333;	
+    //     --border-color: #555;
+    //     --primary-color: #434343;
+    //     --secondary-color: #777;
+    //     --modal-color: rgba(255, 255, 255, 0.8);
+    //     --text-color: #eee;
+    //     --text-shadow-color: #222;
+    //     --modal-text-shadow-color: rgba(255, 255, 255, 0.3)
+    //     --link-color: rgb(7, 164, 255);
+    //     --link-color-hover: #fff;
+    //     --card-background-image:none; 
+    // }
