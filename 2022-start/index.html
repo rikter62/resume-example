@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
 
@@ -31,11 +31,20 @@
   <!-- Font Awesome Icons
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="https://kit.fontawesome.com/231942e16f.js" crossorigin="anonymous"></script>
+
+  <!-- <script type="module" src="js/myJobs.js"></script>
+  <script type="module" src="js/myObjects.js"></script> -->
+  <script src="js/myJS.js" defer></script>
 </head>
 
-<body>
+<body class="sketchy">
+  <div class="dark-toggle">
+    <i class="sun"></i>
+    <input name="theme" id="darkToggle" type="checkbox" class="checkbox">
+    <label for="darkToggle"><span class="sr-only">Dark Mode</span></label>
+    <i class="moon"></i>
+  </div>
   <header class="about">
-
 
     <div class="logo-box" aria-hidden="true">
       <video autoplay loop muted preload playsinline class="logo-box--video-bg">
@@ -94,7 +103,7 @@
   <div class="experience wrapper">
     <!-- Card  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-    <section itemprop="memberOf" itemscope="" itemtype="http://schema.org/Organization" class="card">
+    <section itemprop="memberOf" itemscope="" itemtype="http://schema.org/Organization" class="card" id="webEngineer">
       <h3 class="card--title">
         <img class="card--logo fiserv-logo" src="./images/Fiserv_logo.svg.png" aria-hidden="true" />
         <span itemprop="name" class="sr-only card--logo-txt">Fiserv</span>
@@ -113,7 +122,7 @@
           Branded the ePayments applications including Zelle, Desktop and Mobile BillPay, Small Business Product,
           CheckFree NextGen.
           <i class="fas fa-info-circle" aria-hidden="true" data-tooltip="more info" tabindex="0" role="button"></i>
-          <span class="card--more-info" id="we1">
+          <span class="card--more-info" id="w13">
             Led the initiative to standardize markup structure and define the best way to architect the classes using
             CSS custom properties to allow for easier branding for Web Engineering team and speed delivery. Also
             promoted use of CSS grid and flexbox to make layout and customization easier.
@@ -260,7 +269,7 @@
   </div><!-- end experience wrapper-->
 
 
-  <script src="js/myJS.js"></script>
+
 </body>
 
 </html>
