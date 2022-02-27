@@ -8,13 +8,38 @@ html {
   /* Grid Defaults - default  */
   --max-width-main: 1100px;
   /* Color Defaults - default  */
-  --background-color: #f5f5f5;
+  --background-color: #f4f4f4;
   --border-color: #f0f0f0;
+  --title-border-color: #ddd;
+  --title-background-color: #f2f2f2;
   --primary-color: #fff;
   --secondary-color: #ccc;
-  --text-color: #555;
+  --modal-color: rgba(0, 0, 0, 0.9);
+  --text-color: #222;
+  --modal-text-color: #fff;
+  --text-shadow-color: #fff;
+  --modal-text-shadow-color: rgba(0, 0, 0, 0.3);
   --link-color: rgb(7, 164, 255);
   --link-color-hover: #000;
+  --card-background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, .4) 100%);
+}
+
+html[data-theme='dark'] {
+  /* Color Dark Theme  */
+  --background-color: #333;
+  --border-color: #666;
+  --title-border-color: #666;
+  --title-background-color: #444;
+  --primary-color: #434343;
+  --secondary-color: #555;
+  --modal-color: rgba(255, 255, 255, 1);
+  --text-color: #eee;
+  --modal-text-color: #222;
+  --text-shadow-color: #000;
+  --modal-text-shadow-color: rgba(255, 255, 255, 0.3);
+  --link-color: rgb(7, 164, 255);
+  --link-color-hover: #fff;
+  --card-background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, .4) 100%);
 }
 
 @font-face {
@@ -51,6 +76,7 @@ html {
   padding: 1rem;
   -webkit-transition: all 1s;
   transition: all 1s;
+  clear: both;
 }
 
 .name-address {
@@ -111,6 +137,11 @@ address a:hover i {
           mask-position: center center;
   -webkit-mask-size: contain;
           mask-size: contain;
+}
+
+[data-theme='dark'] .logo-box--video-bg {
+  -webkit-filter: brightness(3);
+          filter: brightness(3);
 }
 
 @keyframes bounce {
@@ -180,7 +211,7 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: 'Dosis', Helvetica, Arial, sans-serif;
-  color: var(--text-color-normal);
+  color: var(--text-color);
   background-color: var(--background-color);
 }
 
@@ -251,11 +282,11 @@ p {
 /* Links
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: var(--accent-color);
+  color: var(--link-color);
 }
 
 a:hover {
-  color: var(--accent-color-hover);
+  color: var(--link-color-hover);
 }
 
 /* Lists
@@ -277,7 +308,7 @@ ol, ul {
 ul ul, ul ol, ol ol, ol ul {
   font-size: 100%;
   margin: 1rem 0 1rem 3rem;
-  color: var(--text-color-softer);
+  color: var(--text-color);
 }
 
 li {
@@ -286,6 +317,102 @@ li {
 
 ul.no-bullets {
   list-style: none;
+}
+
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  padding-left: 45px;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+  background: #eee;
+  border-radius: 90px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+label:before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 40px;
+  height: 24px;
+  background: #aaa;
+  border-radius: 90px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+input:checked + label:after {
+  left: 0px;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+label:active:after {
+  width: 25px;
+}
+
+.dark-toggle {
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.sun,
+.moon {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  background-size: cover;
+  -webkit-transition: all ease-in-out .5s;
+  transition: all ease-in-out .5s;
+}
+
+.sun {
+  -webkit-mask-image: url(../images/sun.svg);
+          mask-image: url(../images/sun.svg);
+  background-color: #f79907;
+  left: 0;
+  top: .5rem;
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+}
+
+.moon {
+  -webkit-mask-image: url(../images/moon.svg);
+          mask-image: url(../images/moon.svg);
+  background-color: #e8b283;
+  left: 7.8rem;
+  top: .5rem;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+[data-theme="dark"] .moon {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+  background-color: palegoldenrod;
+}
+
+[data-theme="dark"] .sun {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  background-color: yellow;
 }
 
 /* Misc
@@ -317,19 +444,19 @@ hr {
 }
 
 .card {
-  border-radius: 6px;
-  border: 1px solid #e0e0e0;
-  border-bottom-width: 2px;
+  border-radius: 1px;
+  border: 1px solid var(--border-color);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: #f5f5f5;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+  background-color: var(--background-color);
+  background-image: var(--card-background-image);
   font-family: "Dosis", sans-serif;
   height: 100%;
   padding: 2rem;
   position: relative;
-  opacity: 1;
+  opacity: .9;
   -webkit-transition: all .5s;
   transition: all .5s;
 }
@@ -368,15 +495,15 @@ hr {
 }
 
 .card--position-dates {
-  background-color: #f0f0f0;
+  background-color: var(--title-background-color);
   font-size: 1.8rem;
   font-family: 'Dosis', sans-serif;
   font-weight: bold;
-  text-shadow: 0px 1px #fff;
+  text-shadow: 0px 1px var(--text-shadow-color);
   margin: .5rem -2rem 1.5rem;
-  padding: 10px 20px 5px;
-  border-top: 3px solid #e6e6e6;
-  border-bottom: 3px solid #e6e6e6;
+  padding: 10px 20px;
+  border-top: 1px solid var(--title-border-color);
+  border-bottom: 1px solid var(--title-border-color);
   -webkit-transition: all .5s;
   transition: all .5s;
   background-image: url("../images/bg-patern.png");
@@ -431,16 +558,16 @@ hr {
 
 .card--more-info {
   display: block;
-  border-radius: 6px;
+  border-radius: 1px;
   height: 100%;
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 110;
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  background-color: var(--modal-color);
+  color: var(--modal-text-color);
+  text-shadow: 1px 1px 1px var(--modal-text-shadow-color);
   -webkit-transform: scale(0, 1);
           transform: scale(0, 1);
   -webkit-transform-origin: 0%;
@@ -453,7 +580,8 @@ hr {
 
 .education {
   grid-column: 1 / -1;
-  border-radius: 6px;
+  position: relative;
+  border-radius: 1px;
   border-bottom-width: 2px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -527,6 +655,11 @@ hr {
   display: inline-block;
   width: 150px;
   padding-block: .5rem 1rem;
+}
+
+[data-theme='dark'] .checkfree-logo {
+  -webkit-filter: invert(1);
+          filter: invert(1);
 }
 
 /* MQs */
